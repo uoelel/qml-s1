@@ -1,19 +1,14 @@
-# QML - Formative Assessment 1
+# QML - Summative Assessment 1
 
-**DUE Week 5 - Thu 19 October at noon**
+**DUE Week 8 - Thu 9 November at noon**
 
-This repository contains the code and data you'll need for completing the first formative assessment for QML.
-
-This formative has a similar structure and type of exercises that you will be required to complete for the first summative assessment, so this is a great opportunity for you to practice.
-
-For this formative assessment, you will not receive individual feedback, but a model answer with general comments will be shared after the submission deadline. You can of course come to office hours if you want to discuss your submission.
-
+This repository contains the code and data you'll need for completing the first summative assessment for QML.
 
 ## How to download and get started 
 
 1. Click on the green "Code" button above > Download ZIP.
 2. Unzip the file.
-3. Double-click on `qml-f1.Rproj` to open the RStudio Project.
+3. Double-click on `qml-s1.Rproj` to open the RStudio Project.
 4. From the "Files" tab in RStudio, open `code/analysis.Rmd`. This file contains everything you'll need to complete the assignment.
 
 **Note that this is how you should always be opening your files!**
@@ -32,4 +27,4 @@ If you've been having problems with relative paths in the past, then this may be
 ## How to ask questions
 
 Questions about anything assessment-related will only be addressed if they are posted on Piazza.
-This ensures that everyone has access to all the same information.
+This ensures that everyone has access to the same information.

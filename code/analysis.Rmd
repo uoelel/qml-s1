@@ -1,5 +1,5 @@
 ---
-title: "QML - Formative Assessment 1"
+title: "QML - Summative Assessment 1"
 author: "YOUR EXAM NUMBER"
 date: "`r Sys.Date()`"
 output: 
@@ -15,6 +15,8 @@ mainfont: DejaVu Sans
 knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_knit$set(root.dir = here::here())
 library(tidyverse)
+library(brms)
+library(posterior)
 ```
 
 # Instructions
@@ -23,28 +25,25 @@ library(tidyverse)
 
 **DUE Week 5 - Thu 19 October at noon**
 
-You must include your **exam number as the author** in the document preamble above. 
+You must include your **exam number as the author** in the document preamble above.
 
-You'll notice that line 10 of the preamble says `mainfont: DejaVu Sans`.
-We would appreciate it if you'd use this font (or at least some other sans-serif font).
-**Try to render this Rmd file now, before making any changes, to see if you have this font installed.**
+You'll notice that line 10 of the preamble says `mainfont: DejaVu Sans`. We would appreciate it if you'd use this font (or at least some other sans-serif font). **Try to render this Rmd file now, before making any changes, to see if you have this font installed.**
 
-  - If you get an error message saying that DejaVu Sans could not be found, you can download it here: <http://sourceforge.net/projects/dejavu/files/dejavu/2.37/dejavu-fonts-ttf-2.37.zip>.
-  - Then, install it appropriately for your operating system.
-    - Here's a guide for Windows: <https://www.digitaltrends.com/computing/how-to-install-fonts-in-windows-10/>.
-    - Here's a guide for Mac: <https://support.apple.com/en-gb/HT201749>.
+-   If you get an error message saying that DejaVu Sans could not be found, you can download it here: <http://sourceforge.net/projects/dejavu/files/dejavu/2.37/dejavu-fonts-ttf-2.37.zip>.
+-   Then, install it appropriately for your operating system.
+    -   Here's a guide for Windows: <https://www.digitaltrends.com/computing/how-to-install-fonts-in-windows-10/>.
+    -   Here's a guide for Mac: <https://support.apple.com/en-gb/HT201749>.
+-   If you are having issues with this, feel free to use any other sans-serif font you have installed on your machine.
 
-**Do each exercise** by completing tasks, answering questions and/or providing code if required.
-Please **keep your written answers as concise as possible.**
+**Do each exercise** by completing tasks, answering questions and/or providing code if required. Please **keep your written answers as concise as possible.**
 
 Feel free to **add as many code chunks as you want** throughout.
 
 **When you are ready to submit**:
 
-1. Render the Rmd file to **PDF**.
-2. **Rename** the PDF to your exam number only.
-3. **Upload** the PDF file to Learn.
-
+1.  Render the Rmd file to **PDF**.
+2.  **Rename** the PDF to your exam number only.
+3.  **Upload** the PDF file to Learn.
 
 \newpage
 
@@ -52,13 +51,15 @@ Feel free to **add as many code chunks as you want** throughout.
 
 ## Exercise 1: Creating plots
 
-The next three exercises below require you to read in a particular file, filter/transform the data as needed, and create one or more plots that appropriately illustrate the described aspects of the data.
-Please also include a concise written description of the patterns you notice in each plot you make. 
+The next three exercises below require you to read in a particular file, filter/transform the data as needed, and create one or more plots that appropriately illustrate the described aspects of the data. Please also include a concise written description of the plot and patterns you notice in each plot you make. You should also mutate the data if necessary and add informative labels.
+
+**Note** that for each exercise we expect you to create a single plot, i.e. data should be split according to all the variables listed in the exercise instructions. Practically, this means you should use one single call of `ggplot()` per exercise.
 
 ### Exercise 1.1
 
-Based on `data_e1_1.csv`: Plot speech rate against midpoint f0, colouring by condition and faceting by vowel.
-Describe what you see.
+-   Read `data_e1_1.csv`, from <https://lingbuzz.net/lingbuzz/006708>.
+-   Plot proportion of Value (i.e. the acceptability Likert scale score) by Age bracket in each restrictor condition (0 and 1, i.e. absent and present).
+-   Describe the plot and the patterns you see.
 
 ```{r}
 
@@ -66,8 +67,11 @@ Describe what you see.
 
 ### Exercise 1.2
 
-Based on `data_e1_2.csv`: Create a single plot with logged reaction times by language, by environment, and by age (use any means).
-Describe what you see.
+-   Read `data_e1_2.csv`, from <https://doi.org/10.1016/j.cognition.2008.12.007>. The files contains data from the Japanese participants only.
+-   "H" is "homophone", "LR" is the /l\~r/ contrast and "PB" the /p-b/ contrast. "F" are the fillers.
+-   Filter the data so that it contains only trial data (`TrialProc`) and data for all contrasts except `F`.
+-   Create a plot with proportion of correct and incorrect responses in each condition, by contrast.
+-   Describe the plot and the patterns you see.
 
 ```{r}
 
@@ -75,134 +79,115 @@ Describe what you see.
 
 ### Exercise 1.3
 
-Based on `data_e1_3.csv`: Plot the proportion of correct responses for each trial in the easy and difficult conditions, faceting by priming setting.
-Describe what you see.
+-   Use the same data frame as for Ex 1.2 (`data_e1_2`).
+-   Plot *logged* reaction times in each condition, split by accuracy and contrast.
+-   Include median values as points in each combination of condition, accuracy and contrast.
+-   Describe the plot and the patterns you see.
 
 ```{r}
 
 ```
-
 
 \newpage
 
 ## Exercise 2: Critiquing and correcting plots
 
-The following two plots are not appropriate for the type of data they show.
-Briefly describe what is wrong with each plot, try to figure out what the plots might be aiming to visualise, and write your own code to create a more appropriate plot for the exact same data.
-(If you're unsure about the kind of data you're dealing with, having a look at the data frame might help.)
+The following two plots are not appropriate for the type of data they show. Briefly describe what is wrong with each plot, try to figure out what the plots might be aiming to visualise, and write your own code to create a more appropriate plot for the exact same data. If you're unsure about the kind of data you're dealing with, having a look at the data frame will help.
 
 ### Exercise 2.1
+
+-   Data from [Vocal Learning in the Functionally Referential Food Grunts of Chimpanzees](https://doi.org/10.1016/j.cub.2014.12.032). The original data was not available, so the current data frame contains simulated data based on the values reported in the paper.
 
 ```{r e2-1}
 data_e2_1 <- read_csv("data/data_e2_1.csv")
 
 data_e2_1 %>%
-  ggplot(aes(response, condition)) +
-  geom_point()
-```
-
-```{r}
-
+  ggplot(aes(year, group)) +
+  geom_violin() +
+  geom_point(aes(x = peak_freq))
 ```
 
 ### Exercise 2.2
 
+-   The data is from [The decline of local anchoring: a quantitative investigation](https://doi.org/10.1017/S1360674323000047) and includes occurrences of prepositional phrases in different texts.
+-   The English period labels are: "OE" = Old English, "ME" = Middle English, "eModE" = Early Modern English, "lModE" = Late Modern English.
+
 ```{r e2-2, warning=FALSE}
-data_e2_2 <- read_csv("data/data_e2_2.csv")
+data_e2_2 <- read_csv("data/data_e2_2.csv") %>%
+  filter(
+    Include == 1
+  )
 
 data_e2_2 %>%
-  ggplot(aes(vot, fill = voicing)) +
-  geom_bar(width=0.5)
+  ggplot(aes(EnglishPeriod, fill = Pentaset)) +
+  geom_density()
 ```
-
-```{r}
-
-```
-
 
 \newpage
 
 ## Exercise 3: Choosing appropriate summary measures
 
-
-- Read in `data_e3.csv`
-- Obtain summary measures (central tendency: mean, median, or mode; dispersion: standard deviation or range):
-  - For each variable on their own.
-  - For each variable in each group/accuracy combination.
-- Make sure to pick the correct measure(s) for the respective variable type.
-- Report all the measures in writing as you would in a paper.
+-   Read in `data_e3.csv`. This is simulated data of P300 measurements (Event Related Potential component P300) taken during an auditory odd-ball task by participants with Autistic Spectrum Disorder and a control group. The odd word in each trial differed by a set of features (controlled for as part of the experimental design), the number of which is recorded in `n_feats` (from 1 to 4).
+-   Obtain summary measures (central tendency: mean, median, or mode; dispersion: standard deviation or range):
+    -   For each variable on their own.
+    -   For P300 each group/response combination.
+-   Make sure to pick the correct measure(s) for the respective variable type.
+-   Report all the measures in writing as you would in a paper.
 
 ```{r}
 
 ```
-
 
 \newpage
 
 ## Exercise 4: Identifying probability distributions
 
-**This is a challenge exercise!** So far we have only looked at Gaussian distributions, but if you feel like you can learn about the log-normal and Bernoulli distributions and try to complete the exercise. The first summative assessment will have an exercise like this one (but we will have seen all the relevant probabilities by then).
-
 For each variable in the table below, specify in the "Probability distribution" column whether it's (in principle) distributed according to a Gaussian, a log-normal, or a Bernoulli distribution, or according to some different one (put "other" in this case).
-
-Alternatively, just try to identify variables that could be Gaussian and use "other" for the rest.
 
 If you have doubts about any of the variables, you can write about it briefly below the table.
 
-|    | Variable                         | Probability distribution |
-|----|----------------------------------|--------------------------|
-| 1  | Vowel duration (ms)              |                          |
-| 2  | Formant values (hz)              |                          |
-| 3  | Accuracy (binary)                |                          |
-| 4  | Readability (0-100)              |                          |
-| 5  | Reaction times (ms)              |                          |
-| 6  | Number of relative clauses       |                          |
-| 7  | Scots vs English                 |                          |
-| 8  | Counts of infant gestures        |                          |
-| 9  | Logged reaction times            |                          |
-| 10 | Ratio of 1st vs non-1st pronouns |                          |
-
+|     | Variable                                              | Probability distribution |
+|-------|----------------------------------------|-----------------|
+| 1   | Old vs young                                          |                          |
+| 2   | Occurrences of verbs                                  |                          |
+| 3   | Hand (left vs right)                                  |                          |
+| 4   | Mel frequencies                                       |                          |
+| 5   | Proportion of voicing within closure                  |                          |
+| 6   | Non-binary vs female vs male                          |                          |
+| 7   | Politeness (7 point scale from rudest to most polite) |                          |
+| 8   | Long-lag VOT                                          |                          |
+| 9   | Logged word frequency                                 |                          |
+| 10  | Number of f0 peaks                                    |                          |
 
 \newpage
 
-## Exercise 5: Running a Bayesian linear model
+## Exercise 5: Critiquing and correcting a Bayesian linear model
 
-Please, choose either 5a or 5b (but you are free to do both if you wish!).
+*Do people from the city speak faster than people from the country side?*
 
-### Exercise 5a
+It does not seem that many studies have asked this question. According to [Elicit](elicit.com):
 
-The file `data_e5a.csv` contains a list of words from eight songs by Nina Simone their sentiment score (from -5 to +5, from most negative to most positive).
+> The [top four] papers provide mixed findings on whether people speak faster in a city compared to the countryside. Hewlett 1998 found no significant difference in speaking rate between urban and rural speakers. Gross 2017 examined tweeting rates in cities and found that greater population density was associated with faster tweeting, suggesting a faster pace of communication. However, this study focused on social media behaviour rather than spoken language. Smith 2014 mentioned that delegates at the United Nations speak faster than before, but this is not specific to urban or rural areas. O'Neill 2008 compared speaking rates between different American English dialects and found that speakers in south-central Wisconsin spoke faster than those in western North Carolina, but this comparison does not directly address the urban-rural distinction.
 
-From [Wikipedia](https://en.wikipedia.org/wiki/Nina_Simone), "Nina Simone was an American singer, songwriter, pianist, composer, arranger and civil rights activist. Her music spanned styles including classical, folk, gospel, blues, jazz, R&B, and pop."
+Now, let's imagine a group of researchers decided to investigate this further in the lab and you are asked to review the paper were they describe their study and results.
 
-Read in the data, then fit a model with `brm()` with `value` as the outcome variable and answer this question: *What is the average sentiment in Nina Simone's songs? Positive, negative or neutral?*
+Here you can find the description of this mock study, including the details of the Bayesian model the researchers have run. (The results are not included.)
 
-Is the data in a good shape to answer that question or do you think further processing like filtering might be needed?
+> We recorded 50 subjects while they read 100 sentences on a screen. For each subject, some of the sentences were presented together with videos showing one of urban landscapes, natural landscapes, fireplaces, and roller coasters.
+>
+> For each trial we measured speech rate as number of syllables per second (syl/s). The hypothesis is that speech rate will be faster in the roller coaster setting relative to the urban setting, and slower in the natural and fireplace settings relative to the urban setting. Moreover, we expect that the natural and fireplace setting will have the same effect on speech rate.
+>
+> To assess these expectations, we ran a linear model using a Gaussian distribution with setting as the outcome variable. We included speech rate as the predictor. In R syntax: `brm(setting ~ speech_rate)`.
 
-Feel free to also create plots to explore the data.
-
-**NOTE**: Warning messages from the MCMC sampling might arise, do not worry about these for the time being. They are in most cases innocuous.
-
-```{r}
-
-```
-
-
-### Exercise 5b
-
-**WARNING**: This exercise asks you to model data from the Harry Potter saga. We in no way support the transgender-phobic views of the saga's author (for background, check this: <https://www.vox.com/culture/22254435/harry-potter-tv-series-hbo-jk-rowling-transphobic>).
-
-The file `data_e5b.csv` contains a list of words from each book of the Harry Potter saga with their sentiment score (from -5 to +5, from most negative to most positive).
-
-Read in the data and then create a new tibble containing only the words from Book 7.
-
-Then fit a model with `brm()` with `value` as the outcome variable and answer this question: *What is the average sentiment in Book 7 of the HP saga? Positive, negative or neutral?*
-
-Feel free to also create plots to explore the data (in its entirety and/or just for Book 7).
-
-**NOTE**: Warning messages from the MCMC sampling might arise, do not worry about these for the time being. They are in most cases innocuous.
+Now critique the analysis (i.e., explain what is wrong with it in light of the authors' hypotheses) and run a more appropriate linear model to assess the research hypotheses of the study based on the provided data (`data_e5.csv`). Report the model specification and the results of your linear model with respect to the hypotheses (i.e. do the results match the hypotheses or not? Can we be certain?).
 
 ```{r}
 
 ```
 
+### References
+
+-   Hewlett 1998. *Rural versus urban accent as an influence on the rate of speech.*
+-   Gross 2017. *Pace of Life in Cities and the Emergence of Town Tweeters.*
+-   Smith 2014. *Limping down the fast lane.*
+-   O'Neill 2008. *Dialect Variation in Speaking Rate.*
