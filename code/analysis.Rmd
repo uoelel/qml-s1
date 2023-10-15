@@ -147,7 +147,7 @@ For each variable in the table below, specify in the "Probability distribution" 
 If you have doubts about any of the variables, you can write about it briefly below the table.
 
 |     | Variable                                              | Probability distribution |
-|-------|----------------------------------------|-----------------|
+|---------------|-----------------------------------------|----------------|
 | 1   | Old vs young                                          |                          |
 | 2   | Occurrences of verbs                                  |                          |
 | 3   | Hand (left vs right)                                  |                          |
@@ -177,9 +177,18 @@ Here you can find the description of this mock study, including the details of t
 >
 > For each trial we measured speech rate as number of syllables per second (syl/s). The hypothesis is that speech rate will be faster in the roller coaster setting relative to the urban setting, and slower in the natural and fireplace settings relative to the urban setting. Moreover, we expect that the natural and fireplace setting will have the same effect on speech rate.
 >
-> To assess these expectations, we ran a linear model using a Gaussian distribution with setting as the outcome variable. We included speech rate as the predictor. In R syntax: `brm(setting ~ speech_rate)`.
+> To assess these expectations, we ran a linear model using a Gaussian distribution with setting as the outcome variable. We included speech rate as the predictor. In R syntax: `brm(setting ~ speech_rate)`. We will use the following treatment contrast coding:
 
-Now critique the analysis (i.e., explain what is wrong with it in light of the authors' hypotheses) and run a more appropriate linear model to assess the research hypotheses of the study based on the provided data (`data_e5.csv`). Report the model specification and the results of your linear model with respect to the hypotheses (i.e. do the results match the hypotheses or not? Can we be certain?).
+|                | nature | fireplace | roller coaster | urban |
+|----------------|--------|-----------|----------------|-------|
+| nature         | 1      | 0         | 0              | 0     |
+| fireplace      | 0      | 1         | 0              | 0     |
+| roller coaster | 0      | 0         | 1              | 0     |
+| urban          | 0      | 0         | 0              | 1     |
+
+Now critique the analysis (i.e., explain what is wrong with it in light of the authors' hypotheses) and run a more appropriate linear model to assess the research hypotheses of the study based on the provided data (`data_e5.csv`). Pay attention to the order of the levels in `setting` (if you are unsure, carefully look at how the hypotheses are formulated).
+
+Report the model specification and the results of your linear model with respect to the hypotheses (i.e. do the results match the hypotheses or not? Can we be certain?).
 
 ```{r}
 

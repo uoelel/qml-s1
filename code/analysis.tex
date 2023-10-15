@@ -394,9 +394,9 @@ If you have doubts about any of the variables, you can write about it
 briefly below the table.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1094}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.6250}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2656}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2083}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5694}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2222}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -471,15 +471,33 @@ on speech rate.
 To assess these expectations, we ran a linear model using a Gaussian
 distribution with setting as the outcome variable. We included speech
 rate as the predictor. In R syntax:
-\texttt{brm(setting\ \textasciitilde{}\ speech\_rate)}.
+\texttt{brm(setting\ \textasciitilde{}\ speech\_rate)}. We will use the
+following treatment contrast coding:
 \end{quote}
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule\noalign{}
+& nature & fireplace & roller coaster & urban \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+nature & 1 & 0 & 0 & 0 \\
+fireplace & 0 & 1 & 0 & 0 \\
+roller coaster & 0 & 0 & 1 & 0 \\
+urban & 0 & 0 & 0 & 1 \\
+\end{longtable}
 
 Now critique the analysis (i.e., explain what is wrong with it in light
 of the authors' hypotheses) and run a more appropriate linear model to
 assess the research hypotheses of the study based on the provided data
-(\texttt{data\_e5.csv}). Report the model specification and the results
-of your linear model with respect to the hypotheses (i.e.~do the results
-match the hypotheses or not? Can we be certain?).
+(\texttt{data\_e5.csv}). Pay attention to the order of the levels in
+\texttt{setting} (if you are unsure, carefully look at how the
+hypotheses are formulated).
+
+Report the model specification and the results of your linear model with
+respect to the hypotheses (i.e.~do the results match the hypotheses or
+not? Can we be certain?).
 
 \subsubsection{References}\label{references}
 
