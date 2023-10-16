@@ -23,7 +23,7 @@ library(posterior)
 
 **PLEASE READ CAREFULLY**
 
-**DUE Week 5 - Thu 19 October at noon**
+**DUE Week 8 - Thu 9 November at noon**
 
 You must include your **exam number as the author** in the document preamble above.
 
@@ -34,6 +34,8 @@ You'll notice that line 10 of the preamble says `mainfont: DejaVu Sans`. We woul
     -   Here's a guide for Windows: <https://www.digitaltrends.com/computing/how-to-install-fonts-in-windows-10/>.
     -   Here's a guide for Mac: <https://support.apple.com/en-gb/HT201749>.
 -   If you are having issues with this, feel free to use any other sans-serif font you have installed on your machine.
+
+This assessment covers Weeks 1 to 7.
 
 **Do each exercise** by completing tasks, answering questions and/or providing code if required. Please **keep your written answers as concise as possible.**
 
@@ -69,7 +71,7 @@ The next three exercises below require you to read in a particular file, filter/
 
 -   Read `data_e1_2.csv`, from <https://doi.org/10.1016/j.cognition.2008.12.007>. The files contains data from the Japanese participants only.
 -   "H" is "homophone", "LR" is the /l\~r/ contrast and "PB" the /p-b/ contrast. "F" are the fillers.
--   Filter the data so that it contains only trial data (`TrialProc`) and data for all contrasts except `F`.
+-   Filter the data so that the only Procedure it contains is trial data (`TrialProc`) and all contrasts except `F`.
 -   Create a plot with proportion of correct and incorrect responses in each condition, by contrast.
 -   Describe the plot and the patterns you see.
 
@@ -110,7 +112,7 @@ data_e2_1 %>%
 ### Exercise 2.2
 
 -   The data is from [The decline of local anchoring: a quantitative investigation](https://doi.org/10.1017/S1360674323000047) and includes occurrences of prepositional phrases in different texts.
--   The English period labels are: "OE" = Old English, "ME" = Middle English, "eModE" = Early Modern English, "lModE" = Late Modern English.
+-   The English period labels are: "OE" = Old English, "ME" = Middle English, "eModE" = Early Modern English, "lModE" = Late Modern English. Make sure the order of the English periods reflects the historical order (as given here).
 
 ```{r e2-2, warning=FALSE}
 data_e2_2 <- read_csv("data/data_e2_2.csv") %>%
@@ -130,7 +132,7 @@ data_e2_2 %>%
 -   Read in `data_e3.csv`. This is simulated data of P300 measurements (Event Related Potential component P300) taken during an auditory odd-ball task by participants with Autistic Spectrum Disorder and a control group. The odd word in each trial differed by a set of features (controlled for as part of the experimental design), the number of which is recorded in `n_feats` (from 1 to 4).
 -   Obtain summary measures (central tendency: mean, median, or mode; dispersion: standard deviation or range):
     -   For each variable on their own.
-    -   For P300 each group/response combination.
+    -   For P300 in each group/response combination.
 -   Make sure to pick the correct measure(s) for the respective variable type.
 -   Report all the measures in writing as you would in a paper.
 
@@ -147,15 +149,15 @@ For each variable in the table below, specify in the "Probability distribution" 
 If you have doubts about any of the variables, you can write about it briefly below the table.
 
 |     | Variable                                              | Probability distribution |
-|---------------|-----------------------------------------|----------------|
+|-----|-------------------------------------------------------|--------------------------|
 | 1   | Old vs young                                          |                          |
-| 2   | Occurrences of verbs                                  |                          |
+| 2   | Counts of verb occurrences                            |                          |
 | 3   | Hand (left vs right)                                  |                          |
-| 4   | Mel frequencies                                       |                          |
+| 4   | Entropy (0 to 1)                                      |                          |
 | 5   | Proportion of voicing within closure                  |                          |
 | 6   | Non-binary vs female vs male                          |                          |
 | 7   | Politeness (7 point scale from rudest to most polite) |                          |
-| 8   | Long-lag VOT                                          |                          |
+| 8   | VOT of voiceless stops                                |                          |
 | 9   | Logged word frequency                                 |                          |
 | 10  | Number of f0 peaks                                    |                          |
 
@@ -163,13 +165,7 @@ If you have doubts about any of the variables, you can write about it briefly be
 
 ## Exercise 5: Critiquing and correcting a Bayesian linear model
 
-*Do people from the city speak faster than people from the country side?*
-
-It does not seem that many studies have asked this question. According to [Elicit](elicit.com):
-
-> The [top four] papers provide mixed findings on whether people speak faster in a city compared to the countryside. Hewlett 1998 found no significant difference in speaking rate between urban and rural speakers. Gross 2017 examined tweeting rates in cities and found that greater population density was associated with faster tweeting, suggesting a faster pace of communication. However, this study focused on social media behaviour rather than spoken language. Smith 2014 mentioned that delegates at the United Nations speak faster than before, but this is not specific to urban or rural areas. O'Neill 2008 compared speaking rates between different American English dialects and found that speakers in south-central Wisconsin spoke faster than those in western North Carolina, but this comparison does not directly address the urban-rural distinction.
-
-Now, let's imagine a group of researchers decided to investigate this further in the lab and you are asked to review the paper were they describe their study and results.
+Let's imagine a group of researchers decided to investigate whether speech rate is affected by what kind of landscape you are viewing. You are asked to review the paper where they describe their study and results.
 
 Here you can find the description of this mock study, including the details of the Bayesian model the researchers have run. (The results are not included.)
 
@@ -193,10 +189,3 @@ Report the model specification and the results of your linear model with respect
 ```{r}
 
 ```
-
-### References
-
--   Hewlett 1998. *Rural versus urban accent as an influence on the rate of speech.*
--   Gross 2017. *Pace of Life in Cities and the Emergence of Town Tweeters.*
--   Smith 2014. *Limping down the fast lane.*
--   O'Neill 2008. *Dialect Variation in Speaking Rate.*

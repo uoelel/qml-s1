@@ -117,7 +117,7 @@
 
 \title{QML - Summative Assessment 1}
 \author{YOUR EXAM NUMBER}
-\date{2023-10-15}
+\date{2023-10-16}
 
 \begin{document}
 \maketitle
@@ -126,7 +126,7 @@
 
 \textbf{PLEASE READ CAREFULLY}
 
-\textbf{DUE Week 5 - Thu 19 October at noon}
+\textbf{DUE Week 8 - Thu 9 November at noon}
 
 You must include your \textbf{exam number as the author} in the document
 preamble above.
@@ -159,6 +159,8 @@ this font installed.}
   If you are having issues with this, feel free to use any other
   sans-serif font you have installed on your machine.
 \end{itemize}
+
+This assessment covers Weeks 1 to 7.
 
 \textbf{Do each exercise} by completing tasks, answering questions
 and/or providing code if required. Please \textbf{keep your written
@@ -224,8 +226,8 @@ single call of \texttt{ggplot()} per exercise.
   ``H'' is ``homophone'', ``LR'' is the /l\textasciitilde r/ contrast
   and ``PB'' the /p-b/ contrast. ``F'' are the fillers.
 \item
-  Filter the data so that it contains only trial data
-  (\texttt{TrialProc}) and data for all contrasts except \texttt{F}.
+  Filter the data so that the only Procedure it contains is trial data
+  (\texttt{TrialProc}) and all contrasts except \texttt{F}.
 \item
   Create a plot with proportion of correct and incorrect responses in
   each condition, by contrast.
@@ -311,7 +313,8 @@ frame will help.
 \item
   The English period labels are: ``OE'' = Old English, ``ME'' = Middle
   English, ``eModE'' = Early Modern English, ``lModE'' = Late Modern
-  English.
+  English. Make sure the order of the English periods reflects the
+  historical order (as given here).
 \end{itemize}
 
 \begin{Shaded}
@@ -371,7 +374,7 @@ measures}\label{exercise-3-choosing-appropriate-summary-measures}
   \item
     For each variable on their own.
   \item
-    For P300 each group/response combination.
+    For P300 in each group/response combination.
   \end{itemize}
 \item
   Make sure to pick the correct measure(s) for the respective variable
@@ -394,9 +397,9 @@ If you have doubts about any of the variables, you can write about it
 briefly below the table.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2083}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5694}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2222}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.0581}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.6395}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3023}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -409,13 +412,13 @@ Probability distribution
 \bottomrule\noalign{}
 \endlastfoot
 1 & Old vs young & \\
-2 & Occurrences of verbs & \\
+2 & Counts of verb occurrences & \\
 3 & Hand (left vs right) & \\
-4 & Mel frequencies & \\
+4 & Entropy (0 to 1) & \\
 5 & Proportion of voicing within closure & \\
 6 & Non-binary vs female vs male & \\
 7 & Politeness (7 point scale from rudest to most polite) & \\
-8 & Long-lag VOT & \\
+8 & VOT of voiceless stops & \\
 9 & Logged word frequency & \\
 10 & Number of f0 peaks & \\
 \end{longtable}
@@ -425,31 +428,10 @@ Probability distribution
 \subsection{Exercise 5: Critiquing and correcting a Bayesian linear
 model}\label{exercise-5-critiquing-and-correcting-a-bayesian-linear-model}
 
-\emph{Do people from the city speak faster than people from the country
-side?}
-
-It does not seem that many studies have asked this question. According
-to \href{elicit.com}{Elicit}:
-
-\begin{quote}
-The {[}top four{]} papers provide mixed findings on whether people speak
-faster in a city compared to the countryside. Hewlett 1998 found no
-significant difference in speaking rate between urban and rural
-speakers. Gross 2017 examined tweeting rates in cities and found that
-greater population density was associated with faster tweeting,
-suggesting a faster pace of communication. However, this study focused
-on social media behaviour rather than spoken language. Smith 2014
-mentioned that delegates at the United Nations speak faster than before,
-but this is not specific to urban or rural areas. O'Neill 2008 compared
-speaking rates between different American English dialects and found
-that speakers in south-central Wisconsin spoke faster than those in
-western North Carolina, but this comparison does not directly address
-the urban-rural distinction.
-\end{quote}
-
-Now, let's imagine a group of researchers decided to investigate this
-further in the lab and you are asked to review the paper were they
-describe their study and results.
+Let's imagine a group of researchers decided to investigate whether
+speech rate is affected by what kind of landscape you are viewing. You
+are asked to review the paper where they describe their study and
+results.
 
 Here you can find the description of this mock study, including the
 details of the Bayesian model the researchers have run. (The results are
@@ -498,21 +480,5 @@ hypotheses are formulated).
 Report the model specification and the results of your linear model with
 respect to the hypotheses (i.e.~do the results match the hypotheses or
 not? Can we be certain?).
-
-\subsubsection{References}\label{references}
-
-\begin{itemize}
-\tightlist
-\item
-  Hewlett 1998. \emph{Rural versus urban accent as an influence on the
-  rate of speech.}
-\item
-  Gross 2017. \emph{Pace of Life in Cities and the Emergence of Town
-  Tweeters.}
-\item
-  Smith 2014. \emph{Limping down the fast lane.}
-\item
-  O'Neill 2008. \emph{Dialect Variation in Speaking Rate.}
-\end{itemize}
 
 \end{document}
