@@ -149,12 +149,12 @@ For each variable in the table below, specify in the "Probability distribution" 
 If you have doubts about any of the variables, you can write about it briefly below the table.
 
 |     | Variable                                              | Probability distribution |
-|-----|-------------------------------------------------------|--------------------------|
+|--------------|-----------------------------------------|------------------|
 | 1   | Old vs young                                          |                          |
 | 2   | Counts of verb occurrences                            |                          |
 | 3   | Hand (left vs right)                                  |                          |
 | 4   | Entropy (0 to 1)                                      |                          |
-| 5   | Proportion of voicing within closure                  |                          |
+| 5   | Reaction times (seconds)                              |                          |
 | 6   | Non-binary vs female vs male                          |                          |
 | 7   | Politeness (7 point scale from rudest to most polite) |                          |
 | 8   | VOT of voiceless stops                                |                          |
@@ -183,6 +183,8 @@ Here you can find the description of this mock study, including the details of t
 | urban          | 0      | 0         | 0              | 1     |
 
 Now critique the analysis (i.e., explain what is wrong with it in light of the authors' hypotheses) and run a more appropriate linear model to assess the research hypotheses of the study based on the provided data (`data_e5.csv`). Pay attention to the order of the levels in `setting` (if you are unsure, carefully look at how the hypotheses are formulated).
+
+Feel free to also summarise and plot the data, although it is optional and if you do you don't have to add it in the assessment (but you can if you want to).
 
 Report the model specification and the results of your linear model with respect to the hypotheses (i.e. do the results match the hypotheses or not? Can we be certain?).
 
