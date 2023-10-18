@@ -60,7 +60,7 @@ The next three exercises below require you to read in a particular file, filter/
 ### Exercise 1.1
 
 -   Read `data_e1_1.csv`, from <https://lingbuzz.net/lingbuzz/006708>.
--   Plot proportion of Value (i.e. the acceptability Likert scale score) by Age bracket in each restrictor condition (0 and 1, i.e. absent and present).
+-   Make a plot that shows, for each age group, what proportion of responses correspond to each value (i.e., each score on the acceptability Likert scale), and split this plot by restrictor condition (0 and 1, i.e., absent and present).
 -   Describe the plot and the patterns you see.
 
 ```{r}
@@ -72,7 +72,7 @@ The next three exercises below require you to read in a particular file, filter/
 -   Read `data_e1_2.csv`, from <https://doi.org/10.1016/j.cognition.2008.12.007>. The files contains data from the Japanese participants only.
 -   "H" is "homophone", "LR" is the /l\~r/ contrast and "PB" the /p-b/ contrast. "F" are the fillers.
 -   Filter the data so that the only Procedure it contains is trial data (`TrialProc`) and all contrasts except `F`.
--   Create a plot with proportion of correct and incorrect responses in each condition, by contrast.
+-   Create a plot that shows the proportion of correct/incorrect responses in each condition for each contrast.
 -   Describe the plot and the patterns you see.
 
 ```{r}
@@ -82,7 +82,7 @@ The next three exercises below require you to read in a particular file, filter/
 ### Exercise 1.3
 
 -   Use the same data frame as for Ex 1.2 (`data_e1_2`).
--   Plot *logged* reaction times in each condition, split by accuracy and contrast.
+-   Plot *logged* reaction times in each condition, also dividing the plot by accuracy and contrast (using any method or combination of methods that effectively distinguishes these variables: different colours, different facets, etc.). Also include points that represent the median values for each combination of condition, accuracy, and contrast.
 -   Include median values as points in each combination of condition, accuracy and contrast.
 -   Describe the plot and the patterns you see.
 
@@ -149,7 +149,7 @@ For each variable in the table below, specify in the "Probability distribution" 
 If you have doubts about any of the variables, you can write about it briefly below the table.
 
 |     | Variable                                              | Probability distribution |
-|--------------|-----------------------------------------|------------------|
+|-----------------|--------------------------------------|-----------------|
 | 1   | Old vs young                                          |                          |
 | 2   | Counts of verb occurrences                            |                          |
 | 3   | Hand (left vs right)                                  |                          |
